@@ -1,7 +1,15 @@
-What is it?
-This project is a firmware for a slave heater controller forming a distributed heating network. Instead of standard high-frequency PWM (which is inefficient for high-power thermal loads), it uses Time-Proportional Control (a 100-second window).
-The controller synchronizes with a Master PC via UART, receiving its specific time slot and power setpoint (0-99%), allowing for precise, centralized management of multiple heaters without electrical interference.
+# Slow-PWM Heater Controller System 🏡⚡
 
-Что это такое?
-Прошивка для ведомого контроллера нагревателя, работающего в распределенной сети. Вместо классического высокочастотного ШИМ (который неэффективен для мощных ТЭНов) используется время-импульсное управление (окно 100 секунд).
-Устройство синхронизируется с ПК-мастером по UART, получая свой временной слот и уставку мощности (0-99%). Это позволяет централизованно управлять сетью обогревателей без радиопомех и перегрузки электросети.
+**EN:** A complete hardware and software package for a distributed heating system. This project includes the STM8 firmware for the slave heaters, the PC software for the master controller, and all necessary schematics.
+
+**RU:** Аппаратно-программный комплекс для распределенной системы обогрева. Проект включает в себя прошивку на STM8 для ведомых обогревателей, программу для ПК (мастер-контроллер) и все необходимые схемы.
+
+## 📦 What's inside? / Что внутри?
+*   **`/firmware`** — C code for the STM8S103F3 microcontroller (Slave devices).
+*   **`/pc_software`** — Master control program for PC (UART sync).
+*   **`/docs`** — Schematics, PCB layouts, and user manuals.
+
+## ⚙️ Core Technology: Slow-PWM
+**EN:** Instead of standard high-frequency PWM (inefficient for thermal loads), the system uses **Time-Proportional Control** (a 100-second window). The Master PC synchronizes up to 9 slave heaters via UART, allocating specific time slots and power setpoints (0-99%).
+
+**RU:** Вместо классического высокочастотного ШИМ (неэффективного для мощных ТЭНов) используется **время-импульсное управление** (окно 100 секунд). ПК-мастер синхронизирует до 9 ведомых обогревателей по UART, выделяя каждому свой временной слот и уставку мощности (0-99%).
